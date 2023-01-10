@@ -579,28 +579,6 @@ doSetConsole "$CONSOLE_KEYMAP" "$CONSOLE_FONT"
 
 doFixLinkIsNotReady
 
-doClearNetwork
-
-if [ "$SET_ETHERNET" == "yes" ]; then
-    if [ "$ETHERNET_DHCP" == "no" ]; then
-        doSetEthernetStatic
-    else
-        doSetEthernetDhcp
-    fi
-fi
-
-if [ "$SET_WIRELESS" == "yes" ]; then
-    if [ "$WIRELESS_DHCP" == "no" ]; then
-        doSetWirelessStatic
-    else
-        doSetWirelessDhcp
-    fi
-
-    doEnableWireless
-fi
-
-[ "$DISABLE_IPV6" == "yes" ] && doDisableIpv6
-
 [ "$ROOT_USER_BASH_LOGOUT_CLEAR" == "yes" ] && doBashLogoutClear
 
 [ "$SSH_ACCEPT_KEY_TYPE_SSH_DSS" == "yes" ] && doSshAcceptKeyTypeSshDss
